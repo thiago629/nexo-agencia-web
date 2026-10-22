@@ -1,0 +1,19 @@
+# Nexo Agencia Web
+
+> Agencia de diseño web para negocios locales de Andalucía (Málaga y la Axarquía). Webs modernas y animadas con fotos reales del negocio, SEO local y GEO, en español e inglés.
+
+## Oferta
+- Web Nexo: 250 € en un solo pago, sin cuotas. Dominio aparte (unos 12 €/año).
+- Maqueta gratis en 24 horas; web publicada en 48 horas desde que el negocio envía fotos y datos.
+- Incluye: diseño animado a medida, fotos reales del negocio, SEO local y alta en Google Maps, GEO (preparada para asistentes de IA), español e inglés, botón de WhatsApp.
+
+## Preguntas frecuentes
+- ¿Cuánto cuesta una web con Nexo? 250 € en un solo pago, sin cuotas. El dominio (tunegocio.es) va aparte: unos 12 € al año.
+- ¿Cuánto tardáis en hacerla? Te enseñamos la maqueta en 24 horas y la web queda publicada en 48 horas desde que nos mandas las fotos y los datos de tu negocio.
+- ¿Tengo que pagar antes de verla? No. Primero ves una maqueta gratis con tu negocio. Solo si te gusta, seguimos.
+- ¿Qué es el SEO y el GEO que incluís? SEO es preparar la web para que Google te enseñe cuando alguien busca tu servicio en tu zona. GEO es prepararla para que asistentes de IA como ChatGPT, Gemini o la búsqueda con IA de Google entiendan qué ofreces y puedan recomendarte. Nadie puede garantizar el primer puesto, pero tu web sale preparada para los dos.
+- ¿Usáis fotos de mi negocio? Sí, siempre fotos reales: la fachada, el local, el equipo y vuestro trabajo. Si no tienes, te explicamos cómo hacerlas con el móvil.
+- ¿Dónde trabajáis? En toda Andalucía, sobre todo en Málaga y la Axarquía: Vélez-Málaga, Torrox, Nerja, Rincón de la Victoria y alrededores.
+
+## Enlaces
+- Web: https://nexo-agencia-web.vercel.app/

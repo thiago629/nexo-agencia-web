@@ -5,7 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Nexo Agencia Web</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Webs profesionales para negocios de Andalucía. 250 €, pago único, lista en 5 días.">
+<meta name="description" content="Agencia web en Andalucía: webs modernas y animadas para negocios locales, con tus fotos reales, SEO y GEO. 250 €, pago único, lista en 24–48 horas.">
+<link rel="canonical" href="https://nexo-agencia-web.vercel.app/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0b1424">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Nexo Agencia Web">
+<meta property="og:title" content="Nexo Agencia Web · Tu negocio en internet en 48 horas">
+<meta property="og:description" content="Webs modernas y animadas para negocios de Andalucía, con tus fotos reales, SEO y GEO. 250 €, pago único.">
+<meta property="og:url" content="https://nexo-agencia-web.vercel.app/">
+<meta property="og:image" content="https://nexo-agencia-web.vercel.app/img/estudio.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Nexo Agencia Web", "url": "https://nexo-agencia-web.vercel.app/", "image": "https://nexo-agencia-web.vercel.app/img/estudio.jpg", "description": "Agencia de diseño web para negocios locales de Andalucía. Webs modernas y animadas con fotos reales del negocio, SEO local y GEO, en español e inglés, por 250 € y en 24–48 horas.", "areaServed": [{"@type": "AdministrativeArea", "name": "Andalucía"}, {"@type": "City", "name": "Málaga"}, {"@type": "Place", "name": "Axarquía"}], "priceRange": "250 €", "knowsLanguage": ["es", "en"], "makesOffer": {"@type": "Offer", "name": "Web Nexo", "price": "250", "priceCurrency": "EUR", "description": "Diseño y publicación de página web profesional: animada, con fotos reales, SEO y GEO, español e inglés, botón de WhatsApp y alta en Google Maps."}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuánto cuesta una web con Nexo?", "acceptedAnswer": {"@type": "Answer", "text": "250 € en un solo pago, sin cuotas. El dominio (tunegocio.es) va aparte: unos 12 € al año."}}, {"@type": "Question", "name": "¿Cuánto tardáis en hacerla?", "acceptedAnswer": {"@type": "Answer", "text": "Te enseñamos la maqueta en 24 horas y la web queda publicada en 48 horas desde que nos mandas las fotos y los datos de tu negocio."}}, {"@type": "Question", "name": "¿Tengo que pagar antes de verla?", "acceptedAnswer": {"@type": "Answer", "text": "No. Primero ves una maqueta gratis con tu negocio. Solo si te gusta, seguimos."}}, {"@type": "Question", "name": "¿Qué es el SEO y el GEO que incluís?", "acceptedAnswer": {"@type": "Answer", "text": "SEO es preparar la web para que Google te enseñe cuando alguien busca tu servicio en tu zona. GEO es prepararla para que asistentes de IA como ChatGPT, Gemini o la búsqueda con IA de Google entiendan qué ofreces y puedan recomendarte. Nadie puede garantizar el primer puesto, pero tu web sale preparada para los dos."}}, {"@type": "Question", "name": "¿Usáis fotos de mi negocio?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, siempre fotos reales: la fachada, el local, el equipo y vuestro trabajo. Si no tienes, te explicamos cómo hacerlas con el móvil."}}, {"@type": "Question", "name": "¿Dónde trabajáis?", "acceptedAnswer": {"@type": "Answer", "text": "En toda Andalucía, sobre todo en Málaga y la Axarquía: Vélez-Málaga, Torrox, Nerja, Rincón de la Victoria y alrededores."}}]}]</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
@@ -61,7 +74,7 @@ body{background:var(--ink);color:var(--paper);font-family:var(--f-body);font-siz
 .panel{position:absolute;left:max(30px, env(safe-area-inset-left,0px));right:max(30px, env(safe-area-inset-right,0px));bottom:calc(34px + env(safe-area-inset-bottom,0px));
   max-width:640px;opacity:0;will-change:opacity,transform}
 .panel.on{pointer-events:auto}
-.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal)}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);text-shadow:0 1px 8px rgba(11,20,36,.9)}
 .panel h1,.panel h2{font-family:var(--f-display);font-weight:800;letter-spacing:-.035em;line-height:.95;margin:.35em 0 .3em;text-wrap:balance}
 .panel h1{font-size:clamp(44px, 9vw, 104px)}
 .panel h2{font-size:clamp(34px, 6.4vw, 72px)}
@@ -104,6 +117,23 @@ body{background:var(--ink);color:var(--paper);font-family:var(--f-body);font-siz
   .panel{left:max(72px, env(safe-area-inset-left,0px));bottom:72px}
 }
 @media (prefers-reduced-motion:reduce){ .spark{display:none} }
+
+.after{position:relative;z-index:50;background:var(--ink);border-top:1px solid rgba(255,255,255,.08);
+  padding:88px max(20px, env(safe-area-inset-right,0px)) calc(60px + env(safe-area-inset-bottom,0px)) max(20px, env(safe-area-inset-left,0px))}
+.after-in{max-width:880px;margin:0 auto}
+.after h2{font-family:var(--f-display);font-weight:800;font-size:clamp(30px,5vw,52px);letter-spacing:-.03em;line-height:1;margin:.3em 0 .6em;text-wrap:balance}
+.after .lead{font-size:17px;line-height:1.6;color:#d6dae3;max-width:62ch;margin:0}
+.faq{display:grid;gap:10px}
+.faq details{background:var(--ink-2);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px 18px}
+.faq summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";color:var(--signal);font-weight:800}
+.faq details[open] summary:after{content:"–"}
+.faq details p{margin:10px 0 0;line-height:1.6;color:#d6dae3;max-width:68ch}
+.zones{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.zones li{padding:9px 14px;border-radius:99px;background:var(--ink-2);border:1px solid rgba(255,255,255,.1);font-weight:600;font-size:14px}
+.foot{margin-top:64px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);color:var(--mute);font-size:13px;line-height:1.6}
+.foot b{font-family:var(--f-display);color:var(--signal);font-size:18px;margin-right:6px}
 </style>
 </head>
 <body>
@@ -122,9 +152,9 @@ body{background:var(--ink);color:var(--paper);font-family:var(--f-body);font-siz
 <div class="copy">
   <section class="panel" id="inicio">
     <div class="eyebrow">Agencia web · Andalucía</div>
-    <h1>Tu negocio, en internet en <em>5 días</em>.</h1>
-    <p>Diseñamos webs profesionales para negocios de aquí: talleres, bares, tiendas, clínicas, lo que tengas.</p>
-    <div class="price"><b>250 €</b><span>pago único · sin cuotas</span></div>
+    <h1>Tu negocio, en internet en <em>48 horas</em>.</h1>
+    <p>Webs modernas y animadas con las fotos reales de tu negocio. Para talleres, bares, tiendas, clínicas, lo que tengas.</p>
+    <div class="price"><b>250 €</b><span>pago único · lista en 24–48 h</span></div>
   </section>
 
   <section class="panel">
@@ -138,8 +168,8 @@ body{background:var(--ink);color:var(--paper);font-family:var(--f-body);font-siz
     <h2>Ves tu web <em>antes</em> de pagar.</h2>
     <ol class="steps">
       <li><i>1</i><b>Hablamos por teléfono</b><span>10 min</span></li>
-      <li><i>2</i><b>Te enseñamos una maqueta gratis</b><span>48 h</span></li>
-      <li><i>3</i><b>Tu web, publicada</b><span>día 5</span></li>
+      <li><i>2</i><b>Te enseñamos una maqueta gratis</b><span>24 h</span></li>
+      <li><i>3</i><b>Tu web, publicada</b><span>48 h</span></li>
     </ol>
   </section>
 
@@ -152,17 +182,17 @@ body{background:var(--ink);color:var(--paper);font-family:var(--f-body);font-siz
 
   <section class="panel">
     <div class="eyebrow">Hecha a medida</div>
-    <h2>Rápida y lista para <em>Google</em>.</h2>
-    <p>Sin plantillas pesadas. Carga al momento, está en español e inglés y la dejamos enlazada a tu ficha de Google Maps.</p>
+    <h2>Lista para Google y para la <em>IA</em>.</h2>
+    <p>SEO local para que te encuentren en tu zona y GEO para que asistentes como ChatGPT o Gemini entiendan qué ofreces. Carga al momento y está en español e inglés.</p>
   </section>
 
   <section class="panel">
     <div class="eyebrow">Qué incluye</div>
     <h2>Todo por <em>250 €</em>.</h2>
     <ul class="inc">
-      <li>Diseño a medida</li><li>Español e inglés</li>
-      <li>Botón de WhatsApp</li><li>Mapa y horario</li>
-      <li>Puesta en Google Maps</li><li>Cambios el primer mes</li>
+      <li>Diseño animado a medida</li><li>Fotos reales de tu negocio</li>
+      <li>SEO local y Google Maps</li><li>GEO: lista para la IA</li>
+      <li>Español e inglés</li><li>Botón de WhatsApp</li>
     </ul>
     <p class="note">El dominio (tunegocio.es) va aparte: unos 12 € al año.</p>
   </section>
@@ -170,7 +200,7 @@ body{background:var(--ink);color:var(--paper);font-family:var(--f-body);font-siz
   <section class="panel" id="contacto">
     <div class="eyebrow">Empezamos</div>
     <h2>Pide tu maqueta <em>gratis</em>.</h2>
-    <p>Te la enseñamos en 48 horas. Si te gusta, seguimos. Si no, no pagas nada.</p>
+    <p>Te la enseñamos en 24 horas. Si te gusta, en 48 horas está publicada. Si no, no pagas nada.</p>
     <div class="ctas">
       <a class="btn wa" href="https://wa.me/34000000000?text=Hola%20Nexo%2C%20quiero%20mi%20maqueta%20gratis">WhatsApp</a>
       <a class="btn or" href="mailto:hola@nexoagenciaweb.es">Escríbenos</a>
@@ -180,6 +210,27 @@ body{background:var(--ink);color:var(--paper);font-family:var(--f-body);font-siz
 </div>
 
 <div id="scroll"></div>
+
+<section class="after" id="preguntas" aria-labelledby="faq-t">
+  <div class="after-in">
+    <div class="eyebrow">Preguntas frecuentes</div>
+    <h2 id="faq-t">Lo que nos preguntan los negocios</h2>
+    <div class="faq">
+      <details><summary>¿Cuánto cuesta una web con Nexo?</summary><p>250 € en un solo pago, sin cuotas. El dominio (tunegocio.es) va aparte: unos 12 € al año.</p></details>
+      <details><summary>¿Cuánto tardáis en hacerla?</summary><p>Te enseñamos la maqueta en 24 horas y la web queda publicada en 48 horas desde que nos mandas las fotos y los datos de tu negocio.</p></details>
+      <details><summary>¿Tengo que pagar antes de verla?</summary><p>No. Primero ves una maqueta gratis con tu negocio. Solo si te gusta, seguimos.</p></details>
+      <details><summary>¿Qué es el SEO y el GEO que incluís?</summary><p>SEO es preparar la web para que Google te enseñe cuando alguien busca tu servicio en tu zona. GEO es prepararla para que asistentes de IA como ChatGPT, Gemini o la búsqueda con IA de Google entiendan qué ofreces y puedan recomendarte. Nadie puede garantizar el primer puesto, pero tu web sale preparada para los dos.</p></details>
+      <details><summary>¿Usáis fotos de mi negocio?</summary><p>Sí, siempre fotos reales: la fachada, el local, el equipo y vuestro trabajo. Si no tienes, te explicamos cómo hacerlas con el móvil.</p></details>
+      <details><summary>¿Dónde trabajáis?</summary><p>En toda Andalucía, sobre todo en Málaga y la Axarquía: Vélez-Málaga, Torrox, Nerja, Rincón de la Victoria y alrededores.</p></details>
+    </div>
+    <div class="eyebrow" style="margin-top:56px">Dónde trabajamos</div>
+    <h2>Webs para negocios de toda Andalucía</h2>
+    <p class="lead">Trabajamos sobre todo en Málaga y la Axarquía, y hacemos webs para cualquier negocio de Andalucía: talleres, bares, restaurantes, tiendas, peluquerías, clínicas, reformas y más.</p>
+    <ul class="zones"><li>Vélez-Málaga</li><li>Torrox</li><li>Nerja</li><li>Rincón de la Victoria</li><li>Málaga</li><li>Torre del Mar</li><li>Toda Andalucía</li></ul>
+    <footer class="foot"><b>nexo</b> Agencia Web · Diseño web para negocios locales en Andalucía · 250 €, pago único · Web lista en 24–48 h</footer>
+  </div>
+</section>
+
 
 <script>
 (()=>{
@@ -236,14 +287,14 @@ function apply(p){
     bars[i].classList.toggle('on',o>.5)});
 }
 let target=0;
-function readScroll(){const max=document.documentElement.scrollHeight-innerHeight;target=max>0?Math.min(1,Math.max(0,scrollY/max)):0}
+function readScroll(){const max=document.getElementById('scroll').offsetHeight-innerHeight;target=max>0?Math.min(1,Math.max(0,scrollY/max)):0}
 function loop(){if(window.__manual){return}readScroll();const t=camAt(target);
   if(cur&&!reduce){cur.c+=(t.c-cur.c)*.1;cur.x+=(t.x-cur.x)*.1;cur.y+=(t.y-cur.y)*.1}
   apply(target);requestAnimationFrame(loop)}
 // in-page links jump to a scene
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
   const id=a.getAttribute('href').slice(1);const idx=panels.findIndex(p=>p.id===id);if(idx<0)return;e.preventDefault();
-  const max=document.documentElement.scrollHeight-innerHeight;scrollTo({top:max*((idx+.2)/N),behavior:reduce?'auto':'smooth'})}));
+  const max=document.getElementById('scroll').offsetHeight-innerHeight;scrollTo({top:max*((idx+.2)/N),behavior:reduce?'auto':'smooth'})}));
 window.__setP=p=>{window.__manual=true;cur=null;apply(p)};
 apply(0);requestAnimationFrame(loop);
 })();
