@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nexo Premium · Webs de cine para negocios de Andalucía</title>
+<meta name="description" content="Nexo Premium: webs con vídeo que se mueve al hacer scroll, fotos reales de tu negocio, SEO y GEO. Para negocios de Andalucía que quieren destacar.">
+<link rel="canonical" href="https://nexo-agencia-web.vercel.app/premium/">
+<meta name="theme-color" content="#0e1b2b">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Nexo Premium · Tu web, a la altura de tu negocio">
+<meta property="og:description" content="Webs de cine con las fotos reales de tu negocio, SEO y GEO. Maqueta gratis en 24 horas.">
+<meta property="og:url" content="https://nexo-agencia-web.vercel.app/premium/">
+<meta property="og:image" content="https://nexo-agencia-web.vercel.app/premium/assets/hero-ending.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect width='34' height='34' rx='10' fill='%23ff7a1f'/%3E%3Ccircle cx='11' cy='22' r='4' fill='%230e1b2b'/%3E%3Ccircle cx='23' cy='12' r='4' fill='%230e1b2b'/%3E%3Cpath d='M13.5 19.5l7-5' stroke='%230e1b2b' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Nexo Agencia Web","url":"https://nexo-agencia-web.vercel.app/premium/","image":"https://nexo-agencia-web.vercel.app/premium/assets/hero-ending.jpg","description":"Nexo Premium: webs con vídeo que avanza al hacer scroll, fotos reales del negocio, SEO local y GEO, para negocios de Andalucía.","areaServed":[{"@type":"AdministrativeArea","name":"Andalucía"},{"@type":"City","name":"Málaga"},{"@type":"Place","name":"Axarquía"}],"knowsLanguage":["es","en"]}</script>
+<style>
+/* Layout: a pinned 400vh hero whose video scrubs with scroll, settling into a real one-page site. */
+:root{
+  --canvas:#0e1b2b; --panel:#152638; --panel-2:#1b3047;
+  --accent:#ff7a1f; --accent-hover:#ff914a; --accent-muted:rgba(255,122,31,.28);
+  --sea:#6cc0dc; --text-primary:#f3efe8; --text-secondary:#a9b6c6; --ink-on-sky:#0e1b2b;
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",sans-serif;
+  --f-body:"Figtree","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --ease-out:cubic-bezier(.22,1,.36,1); --ease-io:cubic-bezier(.65,0,.35,1);
+  --tshadow:0 1px 2px rgba(5,8,14,.95),0 3px 12px rgba(5,8,14,.78),0 10px 44px rgba(5,8,14,.8);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{overflow-x:hidden;overflow-x:clip}
+body{margin:0;overflow-x:hidden;overflow-x:clip;background:var(--canvas);color:var(--text-primary);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;animation:pagein .9s var(--ease-out)}
+@keyframes pagein{from{opacity:0}to{opacity:1}}
+img{max-width:100%;display:block}
+a{color:inherit}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--canvas);padding:10px 14px;border-radius:10px;z-index:100}
+.skip:focus{left:16px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* ambient environment layer */
+.env{position:fixed;inset:-20%;z-index:-1;pointer-events:none;background:radial-gradient(40% 35% at 30% 30%,rgba(108,192,220,.10),transparent 70%),radial-gradient(35% 30% at 75% 70%,rgba(255,122,31,.07),transparent 70%);animation:drift 80s linear infinite alternate}
+@keyframes drift{to{transform:translate3d(6%,-4%,0) rotate(6deg)}}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;
+  padding:calc(14px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) 14px max(20px,env(safe-area-inset-left,0px));
+  transition:background .5s var(--ease-out)}
+.nav.solid{background:rgba(14,27,43,.86);backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:34px;height:34px}
+.brand b{font-family:var(--f-display);font-weight:800;font-size:23px;letter-spacing:-.03em}
+.brand small{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;color:var(--accent);margin-left:6px;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 20px;border-radius:14px;font-weight:700;font-size:15px;text-decoration:none;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:var(--text-primary);transition:transform .35s var(--ease-out),background .35s var(--ease-out);text-shadow:none}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);border-color:transparent;color:var(--canvas)}
+.btn.primary:hover{background:var(--accent-hover)}
+@media (pointer:coarse){.btn{min-height:44px}}
+
+/* hero */
+.hero{position:relative;height:400vh}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#0b1622}
+.poster,.stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.poster{background:center/cover no-repeat}
+.stage video{opacity:0;transition:opacity .6s var(--ease-out);will-change:transform;transform:translateZ(0)}
+.stage.video-ready video{opacity:1}
+.scrim{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 120% 90% at 50% 45%,rgba(8,14,24,0) 40%,rgba(8,14,24,.55) 100%)}
+.band{position:absolute;z-index:2;opacity:0;text-shadow:var(--tshadow);pointer-events:none}
+.band.live{pointer-events:auto}
+.band::before{content:"";position:absolute;inset:-30% -18%;z-index:-1;pointer-events:none;opacity:calc(.25 + .75*var(--k,1));background:radial-gradient(ellipse 74% 62% at 50% 50%,rgba(6,10,18,.66) 0%,rgba(6,10,18,.44) 46%,rgba(6,10,18,0) 76%)}
+.band .eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.band h1,.band h2{font-family:var(--f-display);font-weight:800;letter-spacing:-.035em;line-height:.96;margin:.25em 0 .3em;text-wrap:balance}
+.band h1{font-size:clamp(46px,6.2vw,92px);max-width:11ch}
+.band h2{font-size:clamp(38px,4.8vw,70px);max-width:12ch}
+.band p{margin:0;font-size:clamp(17px,1.4vw,20px);color:#e2e6ec;max-width:34ch}
+.band em{font-style:normal;color:var(--accent)}
+.b1{left:7vw;top:30vh}
+.b2{left:7vw;bottom:16vh}
+.b3{right:6vw;top:16vh;text-align:right}
+.b3 h2,.b3 p{margin-left:auto}
+.b4{left:50%;top:12vh;transform:translateX(-50%);text-align:center;text-shadow:none;width:min(820px,90vw)}
+.b4::before{background:radial-gradient(ellipse 72% 70% at 50% 50%,rgba(243,239,232,.82) 0%,rgba(243,239,232,.55) 50%,rgba(243,239,232,0) 78%)}
+.b4 h2{font-size:clamp(36px,4.2vw,62px)}
+.b4 .eyebrow{color:#c3540a}
+.b4 h2{color:var(--ink-on-sky);margin-inline:auto;max-width:16ch}
+.b4 p{color:#21364c;margin:0 auto}
+.b4 .ctas{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.stage:not(.video-ready) .b4{background:rgba(243,239,232,.88);padding:26px 22px;border-radius:24px;backdrop-filter:blur(8px)}
+.b4 .btn:not(.primary){background:rgba(255,255,255,.7);color:var(--ink-on-sky);border-color:rgba(14,27,43,.15)}
+/* word entrances driven by --k */
+.w{display:inline-block;--kc:clamp(0,(var(--k,0) - var(--th,0))*2.8,1);opacity:var(--kc)}
+.b1 .w{transform:translateY(calc((1 - var(--kc))*-24px))}
+.b2 .w{transform:scale(calc(.82 + .18*var(--kc)))}
+.b3 .w{transform:translateX(calc((1 - var(--kc))*28px))}
+.b4 .w{transform:translateY(calc((1 - var(--kc))*22px))}
+.b4 .sub{opacity:clamp(0,(var(--k,0) - .55)*4,1)}
+.b4 .ctas{opacity:clamp(0,(var(--k,0) - .7)*5,1)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ring{position:absolute;right:28px;bottom:28px;width:38px;height:38px;color:var(--accent);transition:opacity .5s}
+.stage.video-ready .ring{opacity:0}
+.cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;color:#fff;text-transform:uppercase;text-shadow:var(--tshadow);opacity:.85}
+
+/* static hero (phones, reduced motion) */
+.static-hero{display:none}
+@media (max-width: 720px), (orientation: portrait) and (max-width: 1024px), (orientation: portrait) and (pointer: coarse), (orientation: landscape) and (pointer: coarse) and (max-height: 560px), (prefers-reduced-motion: reduce){
+  .hero{display:none}
+  .static-hero{display:flex;position:relative;min-height:92svh;align-items:flex-end;padding:120px max(20px,env(safe-area-inset-right,0px)) 48px max(20px,env(safe-area-inset-left,0px));background:linear-gradient(180deg,rgba(14,27,43,.1) 0%,rgba(14,27,43,.25) 40%,rgba(14,27,43,.96) 88%),url("assets/hero-poster.jpg") 62% center/cover}
+  .static-hero .eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  .static-hero h1{font-family:var(--f-display);font-weight:800;font-size:clamp(42px,11vw,64px);line-height:.96;letter-spacing:-.035em;margin:.25em 0 .35em;text-wrap:balance}
+  .static-hero p{margin:0 0 20px;color:#dfe4ea;max-width:34ch}
+  .static-hero .ctas{display:flex;gap:10px;flex-wrap:wrap}
+}
+
+/* sections */
+main{position:relative;z-index:1}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:max(20px,env(safe-area-inset-left,0px)) max(20px,env(safe-area-inset-right,0px))}
+section.s{padding-block:clamp(80px,12vw,150px)}
+.kicker{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.s h2{font-family:var(--f-display);font-weight:800;font-size:clamp(34px,4.6vw,62px);letter-spacing:-.03em;line-height:1;margin:.3em 0 .45em;text-wrap:balance;max-width:16ch}
+.lede{font-size:clamp(17px,1.5vw,20px);color:var(--text-secondary);max-width:52ch;margin:0}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:center}
+.split>*{min-width:0}
+.photo{border-radius:24px;overflow:hidden;position:relative;box-shadow:0 40px 90px rgba(0,0,0,.4)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo.tall{aspect-ratio:4/5}
+.tag{position:absolute;left:14px;bottom:14px;padding:9px 12px;border-radius:12px;background:rgba(14,27,43,.78);backdrop-filter:blur(8px);font-family:var(--f-mono);font-size:12px;letter-spacing:.06em}
+.pains{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:10px}
+.pains li{display:flex;gap:12px;align-items:baseline;padding:14px 16px;border-radius:14px;background:var(--panel);border:1px solid rgba(255,255,255,.06)}
+.pains li b{font-family:var(--f-mono);color:var(--accent);font-size:12px}
+
+/* the self-drawing link line (signature) */
+.link{display:block;width:100%;height:60px;margin:0 auto}
+.link path{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-dasharray:var(--len,1000);stroke-dashoffset:calc(var(--len,1000) * (1 - var(--draw,0)))}
+.link circle{fill:var(--accent);opacity:var(--draw,0)}
+
+/* interactive: choose your business */
+.picker{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,4vw,56px);align-items:center}
+.picker>*{min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font:inherit;font-weight:700;font-size:15px;padding:12px 16px;border-radius:99px;border:1px solid rgba(255,255,255,.14);background:var(--panel);color:var(--text-primary);cursor:pointer;transition:background .3s var(--ease-out),transform .3s var(--ease-out)}
+.chip:hover{transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--canvas);border-color:transparent}
+.browser{border-radius:20px;overflow:hidden;background:var(--panel);border:1px solid rgba(255,255,255,.08);box-shadow:0 40px 90px rgba(0,0,0,.4)}
+.browser .bar{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--panel-2);font-family:var(--f-mono);font-size:12px;color:var(--text-secondary)}
+.browser .bar i{width:10px;height:10px;border-radius:50%;background:#3b5068;display:block}
+.browser .bar i:first-child{background:var(--accent)}
+.browser .bar span{flex:1;background:rgba(255,255,255,.06);border-radius:8px;padding:6px 10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.site{position:relative;min-height:320px;padding:34px 30px;display:flex;flex-direction:column;justify-content:flex-end;background:var(--site-bg,#203a52);transition:background .6s var(--ease-io)}
+.site:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55))}
+.site>*{position:relative}
+.site .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--site-accent,#ffb27a)}
+.site h3{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,3.2vw,42px);letter-spacing:-.03em;line-height:1;margin:.3em 0 .35em;max-width:14ch}
+.site p{margin:0 0 16px;color:#e7ebf0;max-width:38ch}
+.site .fake{display:inline-flex;align-self:flex-start;padding:10px 14px;border-radius:12px;background:#22b35e;color:#fff;font-weight:700;font-size:14px}
+.swap{transition:opacity .35s var(--ease-out),transform .35s var(--ease-out)}
+.swap.out{opacity:0;transform:translateY(8px)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.step{background:var(--panel);border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.step .photo{border-radius:0;box-shadow:none;aspect-ratio:4/3}
+.step .body{padding:20px 20px 24px}
+.step .n{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.1em}
+.step h3{font-family:var(--f-display);font-weight:800;font-size:24px;letter-spacing:-.02em;margin:.4em 0 .3em}
+.step p{margin:0;color:var(--text-secondary);font-size:16px}
+
+/* plans */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+.plan{border-radius:24px;padding:30px;background:var(--panel);border:1px solid rgba(255,255,255,.07)}
+.plan.prem{background:linear-gradient(160deg,#1d3550,#152638 60%);border-color:var(--accent-muted);position:relative;overflow:hidden}
+.plan.prem::after{content:"";position:absolute;width:240px;height:240px;right:-80px;top:-80px;border-radius:50%;background:radial-gradient(circle,rgba(255,122,31,.35),transparent 70%);animation:glow 6s ease-in-out infinite alternate;animation-delay:-2s}
+@keyframes glow{from{opacity:.4}to{opacity:1}}
+.plan h3{font-family:var(--f-display);font-weight:800;font-size:28px;margin:0;letter-spacing:-.02em}
+.plan .price{display:flex;align-items:baseline;gap:10px;margin:14px 0 18px}
+.plan .price b{font-family:var(--f-display);font-size:48px;font-weight:800;letter-spacing:-.04em}
+.plan .price span{color:var(--text-secondary);font-size:15px}
+.plan ul{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:9px}
+.plan li{display:flex;gap:10px;align-items:baseline}
+.plan li:before{content:"✓";color:var(--accent);font-weight:800}
+
+/* faq */
+.faq{display:grid;gap:10px;margin-top:32px;max-width:860px}
+.faq details{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:18px 20px}
+.faq summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";color:var(--accent);font-weight:800}
+.faq details[open] summary:after{content:"–"}
+.faq p{margin:10px 0 0;color:var(--text-secondary);max-width:66ch}
+
+/* final cta */
+.final{position:relative;border-radius:30px;overflow:hidden;min-height:520px;display:flex;align-items:flex-end;padding:clamp(28px,5vw,60px);margin-bottom:80px;
+  background:linear-gradient(180deg,rgba(14,27,43,.05),rgba(14,27,43,.9) 80%),url("assets/hero-ending.jpg") center/cover}
+.final h2{color:var(--text-primary);text-shadow:var(--tshadow)}
+.final .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.final .contact{font-family:var(--f-mono);font-size:14px;color:#dfe4ea;margin-top:16px}
+.final .contact b{user-select:all;font-weight:500}
+footer{border-top:1px solid rgba(255,255,255,.08);padding:28px 0 calc(40px + env(safe-area-inset-bottom,0px));color:var(--text-secondary);font-size:14px}
+footer b{font-family:var(--f-display);color:var(--accent);font-size:18px;margin-right:6px}
+
+/* entrances */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.rv.in{opacity:1;transform:none}
+.steps .rv.in:nth-child(2),.plans .rv.in:nth-child(2){transition-delay:.12s}
+.steps .rv.in:nth-child(3){transition-delay:.24s}
+.steps .rv.done:nth-child(n),.plans .rv.done:nth-child(n){transition-delay:0s}
+body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused!important}
+
+@media (max-width:860px){
+  .split,.picker,.plans{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;transition-delay:0s!important}
+  .rv{opacity:1;transform:none}
+  .link path{stroke-dashoffset:0}.link circle{opacity:1}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<div class="env" aria-hidden="true"></div>
+
+<nav class="nav" id="nav" aria-label="Principal">
+  <a class="brand" href="#top" aria-label="Nexo Premium, inicio">
+    <svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="10" fill="#ff7a1f"/><circle cx="11" cy="22" r="4" fill="#0e1b2b"/><circle cx="23" cy="12" r="4" fill="#0e1b2b"/><path d="M13.5 19.5l7-5" stroke="#0e1b2b" stroke-width="3" stroke-linecap="round"/></svg>
+    <span><b>nexo</b><small>Premium</small></span>
+  </a>
+  <a class="btn primary" href="#contacto">Maqueta gratis</a>
+</nav>
+
+<header id="top">
+  <div class="hero" id="hero">
+    <div class="stage" id="stage">
+      <div class="poster" id="poster"></div>
+      <video id="video" preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+      <div class="scrim"></div>
+
+      <div class="band b1" data-a="0" data-b="0.27">
+        <div class="eyebrow">Agencia web · Andalucía</div>
+        <h1 class="split-me">Tu negocio, en internet en <em>48 horas</em>.</h1>
+        <p>Webs con fotos reales, que se mueven contigo.</p>
+      </div>
+      <div class="band b2" data-a="0.31" data-b="0.56">
+        <div class="eyebrow">Fotos reales</div>
+        <h2 class="split-me">Tu local. Tu equipo. <em>Tu trabajo.</em></h2>
+        <p>Nada de fotos de catálogo. La gente quiere ver dónde va a entrar.</p>
+      </div>
+      <div class="band b3" data-a="0.6" data-b="0.8">
+        <div class="eyebrow">En cualquier pantalla</div>
+        <h2 class="split-me">Perfecta en el <em>móvil</em>.</h2>
+        <p>Ahí es donde te buscan tus clientes. Ahí tiene que verse bien.</p>
+      </div>
+      <div class="band b4" data-a="0.84" data-b="1.01">
+        <div class="eyebrow">Nexo Premium</div>
+        <h2 class="split-me">Tu web, a la altura de tu negocio.</h2>
+        <p class="sub">Maqueta gratis en 24 horas. Si te gusta, publicada en 48.</p>
+        <div class="ctas"><a class="btn primary" href="#contacto">Pedir mi maqueta gratis</a><a class="btn" href="#planes">Ver qué incluye</a></div>
+      </div>
+
+      <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-opacity=".25" stroke-width="3"/><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)" transform="rotate(-90 24 24)"/></svg>
+      <div class="cue" id="cue">Desliza</div>
+    </div>
+  </div>
+
+  <div class="static-hero">
+    <div>
+      <div class="eyebrow">Agencia web · Andalucía</div>
+      <h1>Tu negocio, en internet en 48 horas.</h1>
+      <p>Webs modernas con las fotos reales de tu negocio. Maqueta gratis en 24 horas.</p>
+      <div class="ctas"><a class="btn primary" href="#contacto">Pedir mi maqueta gratis</a><a class="btn" href="#planes">Ver qué incluye</a></div>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <section class="s">
+    <div class="wrap split">
+      <div>
+        <div class="kicker rv">El problema</div>
+        <h2 class="rv">Si no te encuentran, llaman al de al lado.</h2>
+        <p class="lede rv">Antes de ir a un taller, a un bar o a una tienda, la gente lo mira en el móvil. Busca fotos, el horario y un número al que escribir.</p>
+        <ul class="pains">
+          <li class="rv"><b>01</b>"No sé si estará abierto ahora."</li>
+          <li class="rv"><b>02</b>"No hay fotos, no sé cómo es por dentro."</li>
+          <li class="rv"><b>03</b>"No veo dónde pedir cita."</li>
+        </ul>
+      </div>
+      <div class="photo tall rv"><img src="../img/movil.jpg" alt="Una persona mira la web de un negocio local en el móvil, en una terraza andaluza" loading="lazy"><div class="tag">Así te buscan</div></div>
+    </div>
+  </section>
+
+  <svg class="link wrap" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true" id="link1"><path d="M20 30 C 250 -10, 400 70, 500 30 S 760 -10, 980 30"/><circle cx="20" cy="30" r="6"/><circle cx="980" cy="30" r="6"/></svg>
+
+  <section class="s" id="prueba">
+    <div class="wrap picker">
+      <div>
+        <div class="kicker rv">Hecha para ti</div>
+        <h2 class="rv">Elige tu negocio y mira cómo queda.</h2>
+        <p class="lede rv">Cada web se diseña con los colores, las fotos y las palabras de su negocio. Pulsa uno.</p>
+        <div class="chips rv" role="group" aria-label="Tipo de negocio">
+          <button class="chip" type="button" data-t="taller" aria-pressed="true">Taller</button>
+          <button class="chip" type="button" data-t="bar" aria-pressed="false">Bar</button>
+          <button class="chip" type="button" data-t="tienda" aria-pressed="false">Tienda</button>
+          <button class="chip" type="button" data-t="clinica" aria-pressed="false">Clínica</button>
+        </div>
+      </div>
+      <div class="browser rv" aria-live="polite">
+        <div class="bar"><i></i><i></i><i></i><span id="burl">https://tutaller.es</span></div>
+        <div class="site" id="site">
+          <div class="swap" id="swap">
+            <div class="k" id="sk">Taller mecánico · Vélez-Málaga</div>
+            <h3 id="sh">Tu coche, listo y con el precio que te dijimos.</h3>
+            <p id="sp">Mecánica, frenos, neumáticos y diagnosis. Pide cita por WhatsApp.</p>
+            <span class="fake">Pedir cita por WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s">
+    <div class="wrap">
+      <div class="kicker rv">Cómo trabajamos</div>
+      <h2 class="rv">Tres pasos. Ves tu web antes de pagar.</h2>
+      <div class="steps">
+        <article class="step rv"><div class="photo"><img src="../img/cliente.jpg" alt="Reunión con un cliente para hablar de su web" loading="lazy"></div><div class="body"><div class="n"><span>PASO 1</span><span>10 MIN</span></div><h3>Hablamos</h3><p>Una llamada corta. Nos cuentas qué haces y nos mandas fotos de tu negocio.</p></div></article>
+        <article class="step rv"><div class="photo"><img src="../img/bocetos.jpg" alt="Bocetos de una web sobre un escritorio" loading="lazy"></div><div class="body"><div class="n"><span>PASO 2</span><span>24 H</span></div><h3>Maqueta gratis</h3><p>Te enseñamos cómo quedaría tu web. Si no te gusta, no pagas nada.</p></div></article>
+        <article class="step rv"><div class="photo"><img src="../img/codigo.jpg" alt="Programando una web en un portátil" loading="lazy"></div><div class="body"><div class="n"><span>PASO 3</span><span>48 H</span></div><h3>Publicada</h3><p>Tu web en internet, en tu ficha de Google Maps y lista para recibir clientes.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="planes">
+    <div class="wrap">
+      <div class="kicker rv">Planes</div>
+      <h2 class="rv">Elige cómo quieres que te vean.</h2>
+      <div class="plans">
+        <article class="plan rv">
+          <h3>Web Nexo</h3>
+          <div class="price"><b>250 €</b><span>pago único</span></div>
+          <ul><li>Diseño animado a medida</li><li>Fotos reales de tu negocio</li><li>SEO local y Google Maps</li><li>GEO: lista para la IA</li><li>Español e inglés</li><li>Botón de WhatsApp</li></ul>
+          <a class="btn" href="#contacto">Quiero la Web Nexo</a>
+        </article>
+        <article class="plan prem rv">
+          <h3>Nexo Premium</h3>
+          <div class="price"><b>A medida</b><span>según tu proyecto</span></div>
+          <ul><li>Todo lo de Web Nexo</li><li>Vídeo de cine que avanza al hacer scroll</li><li>Recorrido por tu local con tus fotos</li><li>Un momento interactivo propio</li><li>Más secciones y más idiomas</li></ul>
+          <a class="btn primary" href="#contacto">Quiero Nexo Premium</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="preguntas">
+    <div class="wrap">
+      <div class="kicker rv">Preguntas</div>
+      <h2 class="rv">Lo que nos preguntan los negocios.</h2>
+      <div class="faq">
+        <details class="rv"><summary>¿Tengo que pagar antes de verla?</summary><p>No. Primero ves una maqueta gratis con tu negocio. Solo si te gusta, seguimos.</p></details>
+        <details class="rv"><summary>¿Cuánto tardáis?</summary><p>La maqueta en 24 horas y la web publicada en 48 horas desde que nos mandas las fotos y los datos de tu negocio.</p></details>
+        <details class="rv"><summary>¿Hay cuotas cada mes?</summary><p>No. Pagas una vez. Solo el dominio, el nombre tipo tunegocio.es, va aparte: unos 12 € al año.</p></details>
+        <details class="rv"><summary>¿Qué es el SEO y el GEO?</summary><p>SEO es que Google te enseñe cuando alguien busca tu servicio en tu zona. GEO es que asistentes de IA como ChatGPT o Gemini entiendan qué ofreces. Nadie puede garantizar el primer puesto, pero tu web sale preparada para los dos.</p></details>
+        <details class="rv"><summary>¿Qué diferencia hay con Premium?</summary><p>Premium añade el vídeo de cine que avanza con el scroll, un recorrido por tu local y más secciones. Es para negocios que quieren destacar de verdad.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="contacto">
+    <div class="final rv">
+      <div>
+        <div class="kicker">Empezamos</div>
+        <h2 style="font-family:var(--f-display);font-weight:800;font-size:clamp(36px,5vw,66px);letter-spacing:-.03em;line-height:1;margin:.3em 0 .2em;max-width:14ch">Pide tu maqueta gratis.</h2>
+        <p style="margin:0;color:#e2e6ec;max-width:40ch">Te la enseñamos en 24 horas. Si te gusta, seguimos. Si no, no pagas nada.</p>
+        <div class="ctas"><a class="btn primary" href="https://wa.me/34000000000?text=Hola%20Nexo%2C%20quiero%20mi%20maqueta%20gratis">Escribir por WhatsApp</a><a class="btn" href="../">Ver Web Nexo</a></div>
+        <p class="contact">WhatsApp <b>600 000 000</b></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><b>nexo</b> Agencia Web · Diseño web para negocios locales en Andalucía · Imágenes de ambiente creadas con IA</div>
+</footer>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+let scrubOn=false;
+const stage=$('#stage'), video=$('#video'), poster=$('#poster'), heroEl=$('#hero'), ring=$('.ring'), cue=$('#cue');
+
+/* split headlines into words (screen readers get the plain sentence) */
+function rng(seed){let s=seed>>>0;return()=>(s=(s*1664525+1013904223)>>>0)/4294967296}
+$$('.split-me').forEach((h,hi)=>{
+  const r=rng(42+hi);const full=h.textContent;const frag=document.createDocumentFragment();
+  const sr=document.createElement('span');sr.className='sr';sr.textContent=full;
+  const vis=document.createElement('span');vis.setAttribute('aria-hidden','true');
+  const words=[];h.childNodes.forEach(n=>{const em=n.nodeType===1;(n.textContent.split(/(\s+)/)).forEach(t=>{if(!t)return;if(/^\s+$/.test(t)){vis.appendChild(document.createTextNode(t));return}
+    const w=document.createElement('span');w.className='w';w.textContent=t;if(em){const e=document.createElement('em');e.appendChild(w);vis.appendChild(e)}else vis.appendChild(w);words.push(w)})});
+  words.forEach((w,i)=>w.style.setProperty('--th',(i/words.length*.5+r()*.06).toFixed(3)));
+  h.textContent='';h.appendChild(sr);h.appendChild(vis);
+});
+
+/* bands */
+const bands=$$('.band').map(el=>({el,a:+el.dataset.a,b:+el.dataset.b,op:-1,k:-1}));
+const smooth=(p,e0,e1)=>{const t=Math.min(1,Math.max(0,(p-e0)/(e1-e0)));return t*t*(3-2*t)};
+const clamp=(v,lo,hi)=>Math.min(hi,Math.max(lo,v));
+let loadK=0;
+function updateCaptions(p){
+  bands.forEach((B,i)=>{
+    const f=Math.min(0.02,(B.b-B.a)/3);
+    let op=(i===0?1:smooth(p,B.a,B.a+f))*(i===bands.length-1?1:(1-smooth(p,B.b-f,B.b)));
+    if(p<B.a&&i!==0)op=0;
+    let k=clamp((p-B.a)/Math.min(0.025*2,(B.b-B.a)*.35),0,1); if(i===0)k=Math.max(k,loadK);
+    if(Math.abs(op-B.op)>0.004){B.op=op;B.el.style.opacity=op.toFixed(3);B.el.classList.toggle('live',op>.5)}
+    if(Math.abs(k-B.k)>0.008){B.k=k;B.el.style.setProperty('--k',k.toFixed(3))}
+  });
+  cue.style.opacity=p>0.03?0:.85;
+}
+
+/* scrub engine */
+let target=0,shown=0,rafId=null,lastTick=0,heroOnScreen=true,seekBusy=false,pendingTime=null;
+function heroProgress(){const r=heroEl.getBoundingClientRect();const range=heroEl.offsetHeight-innerHeight;return clamp(-r.top/range,0,1)}
+function requestSeek(t){if(!video.duration)return;if(seekBusy){pendingTime=t;return}seekBusy=true;video.currentTime=Math.min(t,video.duration-0.04)}
+video.addEventListener('seeked',()=>{seekBusy=false;if(pendingTime!==null){const t=pendingTime;pendingTime=null;requestSeek(t)}});
+video.addEventListener('error',()=>{seekBusy=false;pendingTime=null;stage.classList.remove('video-ready')});
+function tick(now){
+  const dt=Math.min(100,now-(lastTick||now));lastTick=now;
+  shown+=(target-shown)*(1-Math.pow(1-0.16,dt/16.667));
+  if(Math.abs(target-shown)<0.0005&&loadK>=1){shown=target;rafId=null;lastTick=0}else rafId=requestAnimationFrame(tick);
+  requestSeek(shown*(video.duration||0));updateCaptions(shown);
+}
+function onScroll(){target=heroProgress();if(rafId===null&&heroOnScreen)rafId=requestAnimationFrame(tick);
+  document.getElementById('nav').classList.toggle('solid',scrollY>heroEl.offsetHeight-innerHeight*1.2||!scrubOn)}
+new IntersectionObserver(e=>{heroOnScreen=e[0].isIntersecting},{threshold:0}).observe(heroEl);
+
+/* load ramp for band one */
+const t0=performance.now();(function ramp(now){loadK=Math.min(1,(now-t0)/1400);loadK=loadK*loadK*(3-2*loadK);if(scrubOn)updateCaptions(shown);if(loadK<1)requestAnimationFrame(ramp)})(t0);
+
+/* video loader (small file: plain blob) */
+let inited=false;
+function initHeroOnce(){if(inited)return;inited=true;
+  poster.style.backgroundImage="url('assets/hero-poster.jpg')";
+  const img=new Image();let started=false;const go=()=>{if(started)return;started=true;load().catch(fail)};
+  img.onload=go;img.onerror=go;img.src='assets/hero-poster.jpg';setTimeout(go,4000);
+}
+async function load(){
+  const mp4=video.canPlayType('video/mp4; codecs="avc1.42E01E"');const url=mp4?'assets/hero-scrub.mp4':'assets/hero-scrub.webm';
+  const res=await fetch(url);if(!res.ok)throw new Error('video');
+  const total=+res.headers.get('Content-Length')||(mp4?3516824:2600000);const rd=res.body.getReader();const ch=[];let got=0;
+  for(;;){const {done,value}=await rd.read();if(done)break;ch.push(value);got+=value.length;ring.style.setProperty('--ld',Math.round(126*(1-Math.min(1,got/total))))}
+  ring.style.setProperty('--ld',0);
+  video.src=URL.createObjectURL(new Blob(ch,{type:mp4?'video/mp4':'video/webm'}));video.load();
+  video.addEventListener('canplay',()=>{requestSeek(heroProgress()*video.duration);stage.classList.add('video-ready')},{once:true});
+}
+function fail(){ring.style.display='none';stage.classList.add('video-failed')}
+
+/* static-hero gates, kept live */
+const GATES=['(max-width: 720px)','(orientation: portrait) and (max-width: 1024px)','(orientation: portrait) and (pointer: coarse)','(orientation: landscape) and (pointer: coarse) and (max-height: 560px)','(prefers-reduced-motion: reduce)'];
+function enableScrub(){if(scrubOn)return;scrubOn=true;initHeroOnce();addEventListener('scroll',onScroll,{passive:true});bands.forEach(b=>{b.op=-1;b.k=-1});updateCaptions(heroProgress());onScroll()}
+function disableScrub(){if(!scrubOn)return;scrubOn=false;removeEventListener('scroll',onScroll);if(rafId!==null){cancelAnimationFrame(rafId);rafId=null}}
+function applyHeroMode(){GATES.some(q=>matchMedia(q).matches)?disableScrub():enableScrub();document.getElementById('nav').classList.toggle('solid',!scrubOn)}
+const MQLS=GATES.map(q=>matchMedia(q));MQLS.forEach(m=>m.addEventListener('change',applyHeroMode));applyHeroMode();
+addEventListener('scroll',()=>{if(!scrubOn)document.getElementById('nav').classList.add('solid')},{passive:true});
+
+/* entrances */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');setTimeout(()=>e.target.classList.add('done'),1300);io.unobserve(e.target)}}),{threshold:.15});
+$$('.rv').forEach(el=>io.observe(el));
+
+/* self-drawing link line */
+const link=$('#link1'),path=link.querySelector('path');const len=path.getTotalLength();link.style.setProperty('--len',len);
+let lastDraw=-1;function draw(){const r=link.getBoundingClientRect();const d=clamp((innerHeight-r.top)/(innerHeight*.7),0,1);if(Math.abs(d-lastDraw)>.01){lastDraw=d;link.style.setProperty('--draw',d.toFixed(3))}}
+addEventListener('scroll',draw,{passive:true});draw();
+
+/* interactive moment: choose your business */
+const T={
+ taller:{u:'https://tutaller.es',k:'Taller mecánico · Vélez-Málaga',h:'Tu coche, listo y con el precio que te dijimos.',p:'Mecánica, frenos, neumáticos y diagnosis. Pide cita por WhatsApp.',bg:'linear-gradient(135deg,#2a2f36,#4a3426)',ac:'#ffb27a'},
+ bar:{u:'https://tubar.es',k:'Bar de tapas · Torrox',h:'Las tapas de siempre, en la terraza de siempre.',p:'Mira la carta, el horario y reserva mesa en un mensaje.',bg:'linear-gradient(135deg,#5a2a1e,#8a4a22)',ac:'#ffd59a'},
+ tienda:{u:'https://tutienda.es',k:'Tienda de barrio · Nerja',h:'Producto de aquí, trato de aquí.',p:'Lo que tenemos esta semana, dónde estamos y cuándo abrimos.',bg:'linear-gradient(135deg,#1f4a3c,#2f6a4e)',ac:'#b8f0c8'},
+ clinica:{u:'https://tuclinica.es',k:'Clínica dental · Málaga',h:'Tu sonrisa, en buenas manos.',p:'Tratamientos, equipo y cita en un minuto. Atendemos en español e inglés.',bg:'linear-gradient(135deg,#1c3d5a,#2c6a8a)',ac:'#bfe6ff'}};
+const site=$('#site'),swap=$('#swap');
+$$('.chip').forEach(c=>c.addEventListener('click',()=>{
+  $$('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));
+  const d=T[c.dataset.t];swap.classList.add('out');
+  setTimeout(()=>{$('#burl').textContent=d.u;$('#sk').textContent=d.k;$('#sh').textContent=d.h;$('#sp').textContent=d.p;site.style.setProperty('--site-bg',d.bg);site.style.setProperty('--site-accent',d.ac);swap.classList.remove('out')},matchMedia('(prefers-reduced-motion: reduce)').matches?0:260);
+}));
+site.style.setProperty('--site-bg',T.taller.bg);
+
+/* pause loops on hidden tabs */
+document.addEventListener('visibilitychange',()=>document.body.classList.toggle('paused',document.hidden));
+window.__hero={heroProgress,updateCaptions};
+})();
+</script>
+</body>
+</html>
