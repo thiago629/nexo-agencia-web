@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nexo Agencia Web</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Webs profesionales para negocios de Andalucía. 250 €, pago único, lista en 5 días.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a fixed 3D stage; scrolling flies a camera from one browser-window "scene" into the next. */
+:root{
+  --ink:#0b1424;          /* deep navy ground */
+  --ink-2:#14203a;        /* raised navy */
+  --paper:#f3efe8;        /* warm off-white text */
+  --mute:#9aa6bd;         /* blue-grey secondary */
+  --signal:#ff7a1f;       /* Nexo orange */
+  --wa:#22b35e;           /* WhatsApp green */
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --f-body:"Figtree", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ink);color:var(--paper);font-family:var(--f-body);font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#scroll{height:calc(var(--n,7) * 130vh)}
+
+/* stage */
+.stage{position:fixed;inset:0;perspective:1000px;perspective-origin:50% 48%;overflow:hidden;
+  background:radial-gradient(120% 80% at 50% 40%, #1a2846 0%, var(--ink) 60%)}
+.world{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;will-change:transform}
+.scene{position:absolute;width:100vw;height:100vh;left:-50vw;top:-50vh;transform-style:preserve-3d;will-change:transform,opacity}
+.win{position:absolute;inset:calc(78px + env(safe-area-inset-top,0px)) 28px 28px;border-radius:26px;overflow:hidden;background:var(--ink-2);
+  box-shadow:0 60px 140px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08)}
+.win .bar{position:absolute;left:0;right:0;top:0;height:54px;display:flex;align-items:center;gap:14px;padding:0 22px;
+  background:rgba(11,20,36,.82);backdrop-filter:blur(8px);z-index:2;font-family:var(--f-mono);font-size:15px;color:var(--mute)}
+.win .dots{display:flex;gap:8px}.win .dots i{width:12px;height:12px;border-radius:50%;background:#3a4864;display:block}
+.win .dots i:first-child{background:var(--signal)}
+.win .url{flex:1;max-width:520px;background:rgba(255,255,255,.07);border-radius:9px;padding:8px 14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.win .url b{color:var(--paper);font-weight:500}
+.win img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.win:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,20,36,.35) 0%,rgba(11,20,36,0) 28%,rgba(11,20,36,.15) 50%,rgba(11,20,36,.92) 100%)}
+.spark{position:absolute;width:6px;height:6px;margin:-3px;border-radius:50%;background:var(--signal);will-change:transform,opacity}
+.spark.w{background:var(--paper);width:3px;height:3px;margin:-1.5px}
+
+/* chrome */
+.nav{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;justify-content:space-between;
+  padding:calc(14px + env(safe-area-inset-top,0px)) max(18px, env(safe-area-inset-right,0px)) 14px max(18px, env(safe-area-inset-left,0px))}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--paper)}
+.brand svg{width:34px;height:34px}
+.brand b{font-family:var(--f-display);font-weight:800;font-size:24px;letter-spacing:-.03em;line-height:1}
+.brand small{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:var(--mute);margin-top:3px;text-transform:uppercase}
+.pill{font-weight:700;font-size:14px;color:var(--ink);background:var(--paper);padding:11px 16px;border-radius:99px;text-decoration:none;white-space:nowrap}
+.pill:focus-visible,.btn:focus-visible,.brand:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+
+.copy{position:fixed;z-index:20;left:0;right:0;bottom:0;pointer-events:none;
+  padding:0 max(20px, env(safe-area-inset-right,0px)) calc(38px + env(safe-area-inset-bottom,0px)) max(20px, env(safe-area-inset-left,0px))}
+.panel{position:absolute;left:max(30px, env(safe-area-inset-left,0px));right:max(30px, env(safe-area-inset-right,0px));bottom:calc(34px + env(safe-area-inset-bottom,0px));
+  max-width:640px;opacity:0;will-change:opacity,transform}
+.panel.on{pointer-events:auto}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal)}
+.panel h1,.panel h2{font-family:var(--f-display);font-weight:800;letter-spacing:-.035em;line-height:.95;margin:.35em 0 .3em;text-wrap:balance}
+.panel h1{font-size:clamp(44px, 9vw, 104px)}
+.panel h2{font-size:clamp(34px, 6.4vw, 72px)}
+.panel h1 em,.panel h2 em{font-style:normal;color:var(--signal)}
+.panel p{font-size:clamp(16px, 1.6vw, 19px);line-height:1.5;color:#d6dae3;margin:0;max-width:52ch}
+.price{display:inline-flex;align-items:baseline;gap:10px;margin-top:18px;padding:10px 16px;border-radius:14px;background:rgba(11,20,36,.66);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1)}
+.price b{font-family:var(--f-display);font-size:30px;font-weight:800;letter-spacing:-.03em}
+.price span{color:var(--mute);font-size:14px}
+.steps{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px}
+.steps li{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 14px;border-radius:14px;background:rgba(11,20,36,.7);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.08)}
+.steps li i{font-style:normal;font-family:var(--f-mono);font-size:12px;color:var(--signal)}
+.steps li b{font-weight:700}
+.steps li span{font-family:var(--f-mono);font-size:12px;color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chips span{padding:9px 13px;border-radius:99px;background:rgba(11,20,36,.7);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);font-weight:600;font-size:14px}
+.inc{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.inc li{padding:11px 13px;border-radius:12px;background:rgba(11,20,36,.72);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.08);font-weight:600;font-size:14px;line-height:1.25;min-width:0}
+.inc li:before{content:"✓ ";color:var(--signal);font-weight:800}
+.note{font-size:13px!important;color:var(--mute)!important;margin-top:10px!important}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 20px;border-radius:16px;font-weight:700;font-size:15px;text-decoration:none;color:var(--paper);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14)}
+.btn.wa{background:var(--wa);border-color:transparent;color:#fff}
+.btn.or{background:var(--signal);border-color:transparent;color:var(--ink)}
+.contact{font-family:var(--f-mono);font-size:14px;color:var(--mute);margin-top:12px!important}
+.contact b{color:var(--paper);font-weight:500;user-select:all}
+
+.meter{position:fixed;z-index:25;right:max(14px, env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);display:grid;gap:8px}
+.meter i{display:block;width:4px;height:22px;border-radius:4px;background:rgba(255,255,255,.18);transition:background .3s,height .3s}
+.meter i.on{background:var(--signal);height:34px}
+.hint{position:fixed;z-index:25;left:50%;top:calc(76px + env(safe-area-inset-top,0px));transform:translateX(-50%);font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase;transition:opacity .4s}
+
+@media (max-width:700px){
+  .win{border-radius:18px;inset:calc(66px + env(safe-area-inset-top,0px)) 10px 10px}.win .bar{height:42px;font-size:12px;padding:0 14px}
+  .brand small{display:none}
+  .inc{grid-template-columns:1fr}
+  .inc li{padding:9px 12px}
+  .meter{display:none}
+}
+@media (min-width:900px){
+  .panel{left:max(72px, env(safe-area-inset-left,0px));bottom:72px}
+}
+@media (prefers-reduced-motion:reduce){ .spark{display:none} }
+</style>
+</head>
+<body>
+
+<div class="stage" aria-hidden="true"><div class="world" id="world"></div></div>
+
+<header class="nav">
+  <a class="brand" href="#inicio" aria-label="Nexo Agencia Web">
+    <svg viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="10" fill="#ff7a1f"/><circle cx="11" cy="22" r="4" fill="#0b1424"/><circle cx="23" cy="12" r="4" fill="#0b1424"/><path d="M13.5 19.5l7-5" stroke="#0b1424" stroke-width="3" stroke-linecap="round"/></svg>
+    <span><b>nexo</b><small>Agencia Web</small></span>
+  </a>
+  <a class="pill" href="#contacto">Maqueta gratis</a>
+</header>
+<nav class="meter" id="meter" aria-hidden="true"></nav>
+
+<div class="copy">
+  <section class="panel" id="inicio">
+    <div class="eyebrow">Agencia web · Andalucía</div>
+    <h1>Tu negocio, en internet en <em>5 días</em>.</h1>
+    <p>Diseñamos webs profesionales para negocios de aquí: talleres, bares, tiendas, clínicas, lo que tengas.</p>
+    <div class="price"><b>250 €</b><span>pago único · sin cuotas</span></div>
+  </section>
+
+  <section class="panel">
+    <div class="eyebrow">El problema</div>
+    <h2>Tus clientes te buscan en el <em>móvil</em>.</h2>
+    <p>Antes de ir a un sitio, la gente lo mira en Google. Si no encuentra tu web, encuentra la de otro.</p>
+  </section>
+
+  <section class="panel">
+    <div class="eyebrow">Cómo trabajamos</div>
+    <h2>Ves tu web <em>antes</em> de pagar.</h2>
+    <ol class="steps">
+      <li><i>1</i><b>Hablamos por teléfono</b><span>10 min</span></li>
+      <li><i>2</i><b>Te enseñamos una maqueta gratis</b><span>48 h</span></li>
+      <li><i>3</i><b>Tu web, publicada</b><span>día 5</span></li>
+    </ol>
+  </section>
+
+  <section class="panel">
+    <div class="eyebrow">Diseño adaptable</div>
+    <h2>Perfecta en <em>cualquier</em> pantalla.</h2>
+    <p>Móvil, tablet y ordenador. Tus clientes la usan donde estén.</p>
+    <div class="chips"><span>Móvil</span><span>Tablet</span><span>Ordenador</span></div>
+  </section>
+
+  <section class="panel">
+    <div class="eyebrow">Hecha a medida</div>
+    <h2>Rápida y lista para <em>Google</em>.</h2>
+    <p>Sin plantillas pesadas. Carga al momento, está en español e inglés y la dejamos enlazada a tu ficha de Google Maps.</p>
+  </section>
+
+  <section class="panel">
+    <div class="eyebrow">Qué incluye</div>
+    <h2>Todo por <em>250 €</em>.</h2>
+    <ul class="inc">
+      <li>Diseño a medida</li><li>Español e inglés</li>
+      <li>Botón de WhatsApp</li><li>Mapa y horario</li>
+      <li>Puesta en Google Maps</li><li>Cambios el primer mes</li>
+    </ul>
+    <p class="note">El dominio (tunegocio.es) va aparte: unos 12 € al año.</p>
+  </section>
+
+  <section class="panel" id="contacto">
+    <div class="eyebrow">Empezamos</div>
+    <h2>Pide tu maqueta <em>gratis</em>.</h2>
+    <p>Te la enseñamos en 48 horas. Si te gusta, seguimos. Si no, no pagas nada.</p>
+    <div class="ctas">
+      <a class="btn wa" href="https://wa.me/34000000000?text=Hola%20Nexo%2C%20quiero%20mi%20maqueta%20gratis">WhatsApp</a>
+      <a class="btn or" href="mailto:hola@nexoagenciaweb.es">Escríbenos</a>
+    </div>
+    <p class="contact">WhatsApp <b>600 000 000</b> · <b>hola@nexoagenciaweb.es</b></p>
+  </section>
+</div>
+
+<div id="scroll"></div>
+
+<script>
+(()=>{
+const S=[
+ {img:'img/estudio.jpg',url:'nexoagenciaweb.es',pos:'50% 50%'},
+ {img:'img/movil.jpg',url:'tunegocio.es/movil',pos:'50% 40%'},
+ {img:'img/bocetos.jpg',url:'tunegocio.es/maqueta',pos:'50% 50%'},
+ {img:'img/dispositivos.jpg',url:'tunegocio.es',pos:'45% 60%'},
+ {img:'img/codigo.jpg',url:'tunegocio.es/codigo',pos:'40% 50%'},
+ {img:'img/equipo.jpg',url:'tunegocio.es/incluye',pos:'50% 50%'},
+ {img:'img/cliente.jpg',url:'tunegocio.es/contacto',pos:'50% 50%'}];
+const N=S.length, D=1900;
+document.documentElement.style.setProperty('--n',N);
+const world=document.getElementById('world');
+const OFF=[[0,0],[.26,-.1],[-.26,.08],[.24,.1],[-.24,-.08],[.22,.06],[0,0]];
+const scenes=S.map((s,i)=>{
+  const el=document.createElement('div');el.className='scene';
+  el.innerHTML=`<div class="win"><img src="${s.img}" alt="" style="object-position:${s.pos}" ${i>1?'loading="lazy"':''}><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">https://<b>${s.url}</b></span></div></div>`;
+  world.appendChild(el);return el});
+// sparks: a dotted trail between scenes + ambient dust
+const sparks=[];
+const rnd=(a,b)=>a+Math.random()*(b-a);
+for(let i=0;i<N-1;i++)for(let k=1;k<14;k++){const t=k/14;sparks.push({x:OFF[i][0]+(OFF[i+1][0]-OFF[i][0])*t,y:OFF[i][1]+(OFF[i+1][1]-OFF[i][1])*t+.42,z:-(i+t)*D,trail:1})}
+for(let i=0;i<70;i++)sparks.push({x:rnd(-1.2,1.2),y:rnd(-.9,.9),z:-rnd(-300,N*D),w:1});
+sparks.forEach(s=>{const e=document.createElement('i');e.className='spark'+(s.w?' w':'');world.appendChild(e);s.el=e});
+const panels=[...document.querySelectorAll('.panel')];
+const meter=document.getElementById('meter');panels.forEach(()=>meter.appendChild(document.createElement('i')));const bars=[...meter.children];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+function camAt(p){ // p in [0,1] -> camera z, x, y
+  const f=Math.min(p*N, N-1e-6), i=Math.floor(f), u=f-i;
+  let c, k;
+  if(i===N-1){c=i*D+(-70+90*Math.min(1,u/0.6));k=0}
+  else if(u<.5){c=i*D-70+90*(u/.5);k=0}
+  else {k=ease((u-.5)/.5);c=i*D+20+(D-90)*k}
+  const j=Math.min(N-1,i+1);
+  return{c,x:OFF[i][0]+(OFF[j][0]-OFF[i][0])*k,y:OFF[i][1]+(OFF[j][1]-OFF[i][1])*k}}
+let cur=null;
+function apply(p){
+  const W=innerWidth,H=innerHeight,t=camAt(p);
+  if(!cur||reduce)cur={...t};
+  world.style.transform=`translate3d(${-cur.x*W}px,${-cur.y*H}px,${cur.c}px)`;
+  scenes.forEach((el,i)=>{
+    const z=-i*D, rel=z+cur.c;
+    let o=1; if(rel>60)o=Math.max(0,1-(rel-60)/360); if(rel<-3.2*D)o=0; else if(rel<-2.2*D)o=1-(-rel-2.2*D)/D;
+    el.style.opacity=o; el.style.visibility=(o<=0.01||rel>760)?'hidden':'visible';
+    el.style.transform=`translate3d(${OFF[i][0]*W}px,${OFF[i][1]*H}px,${z}px)`;});
+  sparks.forEach(s=>{const rel=s.z+cur.c;const vis=rel<700&&rel>-3*D;
+    s.el.style.visibility=vis?'visible':'hidden';
+    if(vis){s.el.style.transform=`translate3d(${s.x*W}px,${s.y*H}px,${s.z}px)`;s.el.style.opacity=s.trail?Math.max(0,Math.min(.9,1-(rel+400)/-2600)):.35}});
+  panels.forEach((el,i)=>{const rel=-i*D+cur.c;
+    let o=1-Math.abs(rel+40)/230; o=Math.max(0,Math.min(1,o*1.6));
+    el.style.opacity=o; el.style.transform=`translateY(${(1-o)*26}px)`; el.classList.toggle('on',o>.5);
+    bars[i].classList.toggle('on',o>.5)});
+}
+let target=0;
+function readScroll(){const max=document.documentElement.scrollHeight-innerHeight;target=max>0?Math.min(1,Math.max(0,scrollY/max)):0}
+function loop(){if(window.__manual){return}readScroll();const t=camAt(target);
+  if(cur&&!reduce){cur.c+=(t.c-cur.c)*.1;cur.x+=(t.x-cur.x)*.1;cur.y+=(t.y-cur.y)*.1}
+  apply(target);requestAnimationFrame(loop)}
+// in-page links jump to a scene
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const id=a.getAttribute('href').slice(1);const idx=panels.findIndex(p=>p.id===id);if(idx<0)return;e.preventDefault();
+  const max=document.documentElement.scrollHeight-innerHeight;scrollTo({top:max*((idx+.2)/N),behavior:reduce?'auto':'smooth'})}));
+window.__setP=p=>{window.__manual=true;cur=null;apply(p)};
+apply(0);requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
